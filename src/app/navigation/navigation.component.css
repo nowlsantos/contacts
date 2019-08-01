@@ -20,3 +20,12 @@
     padding: 1em;
     transform: scale(1.6);
 }
+
+.logout {
+  color: white;
+  text-decoration: none;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

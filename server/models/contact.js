@@ -29,7 +29,7 @@ const contactSchema = new mongoose.Schema({
         minlength: 5,
         maxlength: 255
     },
-    photoURL: {
+    photoUrl: {
         type: String,
         required: true,
         minlength: 5,
@@ -57,7 +57,7 @@ function validateContact(contact) {
         email: Joi.string().min(5).max(255).required().email(),
         password: Joi.string().min(5).max(255).required(),
         phone: Joi.string().min(5).max(255).required(),
-        photoURL: Joi.string().min(5).max(255).required()
+        photoUrl: Joi.string().min(5).max(255)
     }
     return Joi.validate(contact, schema);
 }

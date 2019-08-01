@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.get('/me', authz, async (req, res) => {
     const contact = await Contact.findById(req.contact._id)
-                                 .select(['-password', '-phone', '-photoURL']);
+                                 .select(['-password', '-phone', '-photoUrl']);
     res.send(contact);
 })
 
@@ -36,7 +36,7 @@ router.post('/', async (req, res) => {
     if (contact) {
         return res.status(400).send('Contact already exist');
     }
-    contact = new Contact(_.pick(req.body, ['name', 'email', 'password', 'phone', 'photoURL']));
+    contact = new Contact(_.pick(req.body, ['name', 'email', 'password', 'phone', 'photoUrl']));
     
     const salt = await bcrypt.genSalt(10);
     contact.password = await bcrypt.hash(contact.password, salt);

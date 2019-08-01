@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
     constructor(private route: ActivatedRoute,
                 private router: Router,
                 private fb: FormBuilder,
-                private apiService: ApiService) { }
+                private apiService: ApiService,
+                private authService: AuthService) { }
 
     ngOnInit() {
         this.loginForm = this.fb.group({
@@ -44,7 +45,8 @@ export class LoginComponent implements OnInit {
 
         this.apiService.login(contact)
             .subscribe(res => {
-                console.log('RESPONSE:', res);
+                const obj = JSON.stringify(res);
+                this.authService.setToken(obj);
                 this.router.navigate(['/home']);
             });
     }

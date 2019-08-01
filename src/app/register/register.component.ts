@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
             name: ['', [Validators.required, Validators.minLength(6)]],
             password: ['', [Validators.required, Validators.minLength(6)]],
             phone: ['', [Validators.required, Validators.maxLength(12)]],
-            photoURL: ['', [Validators.required, Validators.maxLength(255)]],
+            photoUrl: ['', [Validators.maxLength(255)]],
         });
     }
 
@@ -41,13 +41,12 @@ export class RegisterComponent implements OnInit {
             email: formvalue.email,
             password: formvalue.password,
             phone: formvalue.phone.toString(),
-            photoURL: formvalue.photoURL
+            photoUrl: formvalue.photoUrl
         };
 
         this.apiService.register(contact)
             .subscribe(res => {
                     const obj = JSON.stringify(res);
-                    // console.log('TOKEN:', obj);
                     this.authService.setToken(obj);
                     this.router.navigate(['/login']);
                 }

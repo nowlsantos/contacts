@@ -3,6 +3,6 @@ export interface Contact {
     name: string;
     password: string;
     phone: string;
-    photoURL: string;
+    photoUrl: string;
     isAdmin?: boolean;
 }

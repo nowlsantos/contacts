@@ -9,10 +9,9 @@
         <mat-nav-list>
             <a mat-list-item href="#">Link 1</a>
             <a mat-list-item href="#">Link 2</a>
-            <a mat-list-item href="#">Link 3</a>
         </mat-nav-list>
     </mat-sidenav>
-
+    
     <mat-sidenav-content>
         <mat-toolbar color="primary">
             <button type="button" 
@@ -22,8 +21,11 @@
                 *ngIf="isHandset$ | async">
                 <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
             </button>
+
             <span><i class="material-icons">supervisor_account</i></span>
             <span>Contact Manager</span>
+            <span class="spacer"></span>
+            <a mat-list-item rout class="logout" routerLink="/login">Logout</a>
         </mat-toolbar>
 
         <!-- Add Content Here -->
