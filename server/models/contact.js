@@ -1,14 +1,23 @@
+require('dotenv').config();
+const jwt = require('jsonwebtoken');
 const Joi = require('@hapi/joi');
 const mongoose = require('mongoose');
 
-const Contact = mongoose.model('Contact', new mongoose.Schema({
+const contactSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
         minlength: 5,
         maxlength: 50
     },
-    address: {
+    email: {
+        type: String,
+        required: true,
+        minlength: 5,
+        maxlength: 255,
+        unique: true
+    },
+    password: {
         type: String,
         required: true,
         minlength: 5,
@@ -26,12 +35,27 @@ const Contact = mongoose.model('Contact', new mongoose.Schema({
         minlength: 5,
         maxlength: 255
     },
-}));
+    isAdmin: Boolean
+});
+
+contactSchema.methods.generateAuthToken = function() {
+    const payload = { 
+        _id: this._id,
+        name: this.name,
+        email: this.email,
+        isAdmin: this.isAdmin 
+    };
+    const token = jwt.sign(payload, process.env.JWT_SECRET);
+    return token;
+}
+
+const Contact = mongoose.model('Contact', contactSchema);
 
 function validateContact(contact) {
     const schema = {
         name: Joi.string().min(5).max(50).required(),
-        address: Joi.string().min(5).max(255).required(),
+        email: Joi.string().min(5).max(255).required().email(),
+        password: Joi.string().min(5).max(255).required(),
         phone: Joi.string().min(5).max(255).required(),
         photoURL: Joi.string().min(5).max(255).required()
     }

@@ -1,5 +1,8 @@
-export class Contact {
+export interface Contact {
     email: string;
-    username: string;
+    name: string;
     password: string;
+    phone: string;
+    photoURL: string;
+    isAdmin?: boolean;
 }

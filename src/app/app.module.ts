@@ -1,22 +1,37 @@
+import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { SharedModule } from './shared/shared.module';
-import { MainEntryModule } from './entry/main-entry.module';
+import { AppRoutingModule } from './app-routing.module';
+
+import { InterceptorProviders } from './core/interceptors';
+
 import { AppComponent } from './app.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        NavigationComponent,
+        HomeComponent,
+        LoginComponent,
+        RegisterComponent
     ],
     imports: [
         BrowserAnimationsModule,
         BrowserModule,
+        ReactiveFormsModule,
+        HttpClientModule,
         SharedModule,
-        MainEntryModule
+        AppRoutingModule
     ],
-    providers: [],
+    providers: [InterceptorProviders],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
