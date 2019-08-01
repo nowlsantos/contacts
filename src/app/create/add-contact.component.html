@@ -1,0 +1,38 @@
+<div class="container">
+        <mat-card>
+            <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+                <mat-card-header color="accent">
+                    <mat-card-title>New Contact</mat-card-title>
+                </mat-card-header>
+    
+                <mat-card-content>
+                    <mat-form-field>
+                        <input matInput placeholder="Email" type="email" formControlName="email">
+                    </mat-form-field>
+    
+                    <mat-form-field>
+                        <input matInput placeholder="Name" type="text" formControlName="name">
+                    </mat-form-field>
+                    
+                    <mat-form-field>
+                        <input matInput placeholder="Password" type="password" formControlName="password">
+                    </mat-form-field>
+    
+                    <mat-form-field>
+                        <input matInput placeholder="Phone" type="number" formControlName="phone">
+                    </mat-form-field>
+    
+                    <mat-form-field>
+                        <input matInput placeholder="http://profiles/your_pic.jpg" type="text" formControlName="photoUrl">
+                    </mat-form-field>
+                </mat-card-content>
+    
+                <mat-card-actions>
+                    <button mat-raised-button color="primary" type="submit">Create</button>
+                    <span>
+                        <a routerLink="/home" class="cancel btn btn-link">Cancel</a>
+                    </span>
+                </mat-card-actions>
+            </form>
+        </mat-card>
+    </div>

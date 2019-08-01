@@ -28,8 +28,8 @@ export class ApiService {
         return this.http.get<Contact[]>(`${this.baseUrl}/contacts`);
     }
 
-    update(id: string) {
-        // return this.http.put(`${this.baseUrl}/contacts/${id}`);
+    update(id: string, contact: Contact) {
+        return this.http.put(`${this.baseUrl}/contacts/${id}`, contact);
     }
 
     delete(id: string) {

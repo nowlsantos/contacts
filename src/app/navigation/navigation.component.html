@@ -7,25 +7,30 @@
         [opened]="(isHandset$ | async) === false">
         <mat-toolbar>Menu</mat-toolbar>
         <mat-nav-list>
-            <a mat-list-item href="#">Link 1</a>
-            <a mat-list-item href="#">Link 2</a>
+            <a mat-list-item routerLink="/new">Add Contact</a>
+            <a mat-list-item routerLink="/login">Logout</a>
         </mat-nav-list>
     </mat-sidenav>
     
     <mat-sidenav-content>
-        <mat-toolbar color="primary">
-            <button type="button" 
-                aria-label="Toggle sidenav" 
-                mat-icon-button 
-                (click)="drawer.toggle()"
-                *ngIf="isHandset$ | async">
-                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-            </button>
-
-            <span><i class="material-icons">supervisor_account</i></span>
-            <span>Contact Manager</span>
-            <span class="spacer"></span>
-            <a mat-list-item rout class="logout" routerLink="/login">Logout</a>
+        <mat-toolbar color="primary" class="navbar">
+            <div>
+                <button type="button" 
+                    aria-label="Toggle sidenav" 
+                    mat-icon-button 
+                    (click)="drawer.toggle()"
+                    *ngIf="isHandset$ | async">
+                    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+                </button>
+                
+                <span><i class="material-icons">supervisor_account</i></span>
+                <span>Contact Manager</span>
+            </div>
+            
+            <div class="nav" *ngIf="authService.isLoggedIn()">
+                <span (click)="createContact()">Add Contact</span>
+                <span (click)="logout()">Logout</span>
+            </div>
         </mat-toolbar>
 
         <!-- Add Content Here -->

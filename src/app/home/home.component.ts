@@ -16,6 +16,5 @@ export class HomeComponent implements OnInit {
 
     ngOnInit() {
         this.contact$ = this.apiService.getContacts();
-        // this.contact$.subscribe(contact => console.log(contact));
     }
 }
