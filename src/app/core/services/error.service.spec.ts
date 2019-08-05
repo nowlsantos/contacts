@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TokenInterceptor } from './token-inteceptor';
+import { ErrorService } from './error.service';
 
-describe('TokenInterceptor', () => {
+describe('ErrorService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: TokenInterceptor = TestBed.get(TokenInterceptor);
+    const service: ErrorService = TestBed.get(ErrorService);
     expect(service).toBeTruthy();
   });
 });

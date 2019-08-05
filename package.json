@@ -4,6 +4,7 @@
     "scripts": {
         "ng": "ng",
         "build": "ng build --prod",
+        "start:client": "ng serve",
         "start": "run-s build start:server",
         "start:server": "node server/index.js",
         "watch:client": "ng serve --proxy-config proxy.config.json --open",

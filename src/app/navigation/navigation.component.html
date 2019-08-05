@@ -1,7 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #drawer 
         class="sidenav" 
-        fixedInViewport 
+        fixedInViewport
         [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
         [mode]="(isHandset$ | async) ? 'over' : 'side'" 
         [opened]="(isHandset$ | async) === false">
@@ -22,12 +22,11 @@
                     *ngIf="isHandset$ | async">
                     <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
                 </button>
-                
-                <span><i class="material-icons">supervisor_account</i></span>
+                <!-- <span><i class="material-icons">supervisor_account</i></span> -->
                 <span>Contact Manager</span>
             </div>
             
-            <div class="nav" *ngIf="authService.isLoggedIn()">
+            <div class="nav" *ngIf="authService.isLoggedIn() && !isHandset$ | async">
                 <span (click)="createContact()">Add Contact</span>
                 <span (click)="logout()">Logout</span>
             </div>

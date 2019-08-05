@@ -8,5 +8,8 @@ html {
 body {
     margin: 0;
     height: 100%;
-    background: linear-gradient(180deg, #f5f6fa 55%, #9c88ff 45%);
+}
+
+.sb-config-error {
+    background-color: crimson;
 }

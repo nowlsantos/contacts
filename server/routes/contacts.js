@@ -60,6 +60,25 @@ router.put('/:id', async (req, res) => {
     res.send(contact);
 })
 
+
+router.patch('/:id', async (req, res) => {
+    /* const { error } = validate(req.body);
+    if (error) {
+        return res.status(400).send(error.details[0].message);
+    }  */
+    const options = {
+        name: req.body.name,
+        email: req.body.email
+    }
+
+    const contact = await Contact.findByIdAndUpdate(req.params.id, options, { new: true });
+    if (!contact) {
+        return res.status(404).send('The contact with the given ID was not found.');
+    }
+    await contact.save();
+    res.send(contact);
+})
+
 router.delete('/:id', async (req, res) => {
     const contact = await Contact.findByIdAndRemove(req.params.id);
 

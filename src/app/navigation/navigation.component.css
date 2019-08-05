@@ -1,5 +1,6 @@
 .sidenav-container {
   height: 100%;
+  background: linear-gradient(180deg, #f5f6fa 55%, #9c88ff 45%);
 }
 
 .sidenav {
@@ -16,10 +17,10 @@
   z-index: 1;
 }
 
-.mat-toolbar .material-icons {
+/* .mat-toolbar .material-icons {
     padding-left: 0.6rem;
     transform: scale(1.6);
-}
+} */
 
 .navbar {
   justify-content: space-between;

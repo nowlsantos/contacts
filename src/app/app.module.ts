@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ContactComponent } from './contact/contact.component';
 import { AddContactComponent } from './create/add-contact.component';
+/* import { LoaderComponent } from './loader/loader.component'; */
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import { AddContactComponent } from './create/add-contact.component';
         LoginComponent,
         RegisterComponent,
         ContactComponent,
-        AddContactComponent
+        AddContactComponent,
+        /* LoaderComponent */
     ],
     imports: [
         BrowserAnimationsModule,
